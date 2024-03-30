@@ -1,0 +1,144 @@
+#calculator-title
+{
+    margin-left: 15px;
+    font-weight: 900;
+}
+
+p
+{
+    color: #FFFFFF;
+}
+
+p:hover
+{
+    cursor:default;
+}
+
+#memory-buttons-container
+{
+    display: flex;
+}
+
+#number-output-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 6;
+}
+
+#number-input
+{
+    font-size: 400%;
+    width: 100%;
+    margin: 0px;
+    text-align: right;
+}
+
+.button
+{
+    flex: 1;
+    margin: 3px 0px 0px 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.button:first-child
+{
+    margin-left: 0px;
+}
+
+.memory-button
+{
+    background-color: #202020;
+    flex: 1;
+    margin: 0px 0px 0px 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.memory-button:hover
+{
+    background-color: #323232;
+}
+
+.memory-button:first-child
+{
+    margin-left: 0px;
+}
+
+#memory-buttons-container
+{
+    flex: 2;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.standard-buttons-container
+{
+    flex: 3;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#calculator-container
+{
+    background-color: #202020;
+    height: 40rem;
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.memory-button-text
+{
+    margin: 0px;
+}
+
+.button-text
+{
+    margin: 0px;
+}
+
+.outer-color
+{
+    background-color: #323232;
+}
+
+.outer-color:hover
+{
+    background-color: #3B3B3B;
+}
+
+.inner-color
+{
+    background-color: #3B3B3B;
+}
+
+.inner-color:hover
+{
+    background-color: #323232;
+}
+
+.result
+{
+    background-color:  #415270;
+}
+
+.result p
+{
+    color:  #212D45;
+}
+
+.result:hover
+{   
+    background-color:  #334058;
+}
