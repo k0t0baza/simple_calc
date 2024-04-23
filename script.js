@@ -9,10 +9,26 @@ document.addEventListener('DOMContentLoaded', function() {
             const value = this.id;
 
             switch (value) {
+                case 'sign':
+                    if (display.innerText) {
+                        display.innerText = -parseFloat(display.innerText).toString();
+                    }
+                    break;
+                case '+':
+                case '-':
+                case 'mult':
+                case 'subd':
+                case '%':
+                    if (display.innerText !== '') {
+                        firstNumber = display.innerText;
+                        operation = value;
+                        display.innerText = '';
+                    }
+                    break;
                 case 'sin':
-                    try{
+                    try {
                         const currentVal = parseFloat(display.innerText);
-                        const result =  Math.sin(currentVal);
+                        const result = Math.sin(currentVal);
                         display.innerText = result.toFixed(2);
                     } catch (e) {
                         display.innerText = 'Error';
@@ -46,14 +62,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     display.innerText = resultroot;
                     break;
                 case '=':
-                    const secondNumber = display.innerText;
+                    const secondNumber = parseFloat(display.innerText);
                     let result = 0;
                     try {
-                        if (operation === 'pow') {
-                            result = Math.pow(parseFloat(firstNumber), parseFloat(secondNumber));
-                        }
-                        else {
-                            result = eval(firstNumber + operation + secondNumber);
+                        switch(operation) {
+                            case '+':
+                                result = parseFloat(firstNumber) + secondNumber;
+                                break;
+                            case '-':
+                                result = parseFloat(firstNumber) - secondNumber;
+                                break;
+                            case 'mult':
+                                result = parseFloat(firstNumber) * secondNumber;
+                                break;
+                            case 'subd':
+                                result = parseFloat(firstNumber) / secondNumber;
+                                break;
+                            case '%':
+                                result = parseFloat(firstNumber) % secondNumber;
+                                break;
+                            case 'pow':
+                                result = Math.pow(parseFloat(firstNumber), parseFloat(secondNumber));
+                                break;
+
                         }
                         display.innerText = result;
                     } catch (e) {
