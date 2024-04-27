@@ -18,7 +18,7 @@ describe("Calculator operations", () => {
       <div class="button-text" id="90">90</div>
     `;
 
-  require("./script.js"); // Указать путь к вашему скрипту калькулятора
+  require("../script.js"); // Указать путь к вашему скрипту калькулятора
 
   const sinButton = document.getElementById("sin");
   const cosButton = document.getElementById("cos");
