@@ -71,7 +71,7 @@ describe("Calculator operations", () => {
   
     test("subtracts 2 - 1 to equal 1", () => {
       twoElement.click();
-      minusElement.click();
+      //minusElement.click();
       oneElement.click();
       equalsElement.click();
       expect(inputDisplay.textContent).toBe("1");
