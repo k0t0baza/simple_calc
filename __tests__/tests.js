@@ -8,8 +8,8 @@ const { afterEach } = require('node:test');
 const path = require("path");
 const { addListener } = require('process');
 
-const sourceHtmlPath = path.join(__dirname, '..',  'index.html');
-const sourceJsPath = path.join(__dirname, "..", "script.js");
+const sourceHtmlPath = path.join(__dirname, '..', "public",   'index.html');
+const sourceJsPath = path.join(__dirname, "..","public", "script.js");
 
 
 
