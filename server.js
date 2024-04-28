@@ -12,6 +12,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Сервер запущен на порту ${port}`);
 });
+
+process.on("SIGINT", () => server.close())
+process.on("SIGTERM", () => server.close())
