@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+function addListeners() {
     const display = document.getElementById('number-input');
     const buttons = document.querySelectorAll('.button-text');
     let operation = '';
@@ -6,12 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     buttons.forEach(button => {
         button.addEventListener('click', function() {
+            
             const value = this.id;
 
             switch (value) {
                 case 'sign':
-                    if (display.innerText) {
-                        display.innerText = -parseFloat(display.innerText).toString();
+                    if (display.textContent) {
+                        display.textContent = -parseFloat(display.textContent).toString();
                     }
                     break;
                 case '+':
@@ -19,50 +20,50 @@ document.addEventListener('DOMContentLoaded', function() {
                 case 'mult':
                 case 'subd':
                 case '%':
-                    if (display.innerText !== '') {
-                        firstNumber = display.innerText;
+                    if (display.textContent !== '') {
+                        firstNumber = display.textContent;
                         operation = value;
-                        display.innerText = '';
+                        display.textContent = '';
                     }
                     break;
                 case 'sin':
                     try {
-                        const currentVal = parseFloat(display.innerText);
+                        const currentVal = parseFloat(display.textContent);
                         const result = Math.sin(currentVal);
-                        display.innerText = result.toFixed(2);
+                        display.textContent = result.toFixed(2);
                     } catch (e) {
-                        display.innerText = 'Error';
+                        display.textContent = 'Error';
                     }
                     break;
                 case 'cos':
                     try {
-                        const currentVal = parseFloat(display.innerText);
+                        const currentVal = parseFloat(display.textContent);
                         const result = Math.cos(currentVal);
-                        display.innerText = result.toFixed(2);
+                        display.textContent = result.toFixed(2);
                     } catch (e) {
-                        display.innerText = 'Error';
+                        display.textContent = 'Error';
                     }
                     break;
                 case 'floor':
-                    display.innerText = Math.floor(parseFloat(display.innerText));
+                    display.textContent = Math.floor(parseFloat(display.textContent));
                     break;
                 case 'ceil':
-                    display.innerText = Math.ceil(parseFloat(display.innerText));
+                    display.textContent = Math.ceil(parseFloat(display.textContent));
                     break;
                 case 'pow':
-                    firstNumber = display.innerText;
+                    firstNumber = display.textContent;
                     operation = value;
-                    display.innerText = '';
+                    display.textContent = '';
                     break;
                 case 'root':
-                    firstNumber = display.innerText;
+                    firstNumber = display.textContent;
                     operation = value;
                     let resultroot = 0
                     resultroot = Math.sqrt(parseFloat(firstNumber));
-                    display.innerText = resultroot;
+                    display.textContent = resultroot;
                     break;
                 case '=':
-                    const secondNumber = parseFloat(display.innerText);
+                    const secondNumber = parseFloat(display.textContent);
                     let result = 0;
                     try {
                         switch(operation) {
@@ -86,25 +87,32 @@ document.addEventListener('DOMContentLoaded', function() {
                                 break;
 
                         }
-                        display.innerText = result;
+                        display.textContent = result;
                     } catch (e) {
-                        display.innerText = 'Error';
+                        display.textContent = 'Error';
                     }
                     firstNumber = '';
                     operation = '';
                     break;
                 case 'c':
-                    display.innerText = '';
+                    display.textContent = '';
                     firstNumber = '';
                     operation = '';
                     break;
                 case 'backspace':
-                    display.innerText = display.innerText.slice(0, -1);
+                    display.textContent = display.textContent.slice(0, -1);
                     break;
                 default:
-                    display.innerText += this.textContent.trim();
+                    display.textContent += this.textContent.trim();
+                    
                     break;
             }
         });
     });
-});
+}
+
+document.addEventListener('DOMContentLoaded', addListeners);
+
+module.exports = {
+    addListeners: addListeners
+};
