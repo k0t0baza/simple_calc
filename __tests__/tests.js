@@ -90,6 +90,8 @@ describe("Calculator operations", () => {
     sixElement.click();
     signElement.click();
     plusElement.click();
+    oneElement.click();
+    zeroElement.click();
     equalsElement.click();
 
     expect(inputDisplay.textContent).toBe("4");
@@ -164,6 +166,7 @@ describe("Calculator operations", () => {
     test("divides -25 / 5 to equal -5", () => {
       twoElement.click();
       fiveElement.click();
+      signElement.click();
       subdElement.click();
       fiveElement.click();
       equalsElement.click();
@@ -199,7 +202,7 @@ describe("Calculator operations", () => {
       fiveElement.click();
       equalsElement.click();
 
-      expect(Number(inputDisplay.textContent)).toBeCloseTo(2.8, 2);
+      expect(Number(inputDisplay.textContent)).toBeCloseTo(1, 2);
       cElement.click();
     });
 
@@ -212,7 +215,7 @@ describe("Calculator operations", () => {
       fiveElement.click();
       equalsElement.click();
 
-      expect(inputDisplay.textContent).toBe(56);
+      expect(inputDisplay.textContent).toBe("56");
       cElement.click();
     });
 
@@ -224,7 +227,7 @@ describe("Calculator operations", () => {
       zeroElement.click();
       equalsElement.click();
 
-      expect(inputDisplay.textContent).toBe(1024);
+      expect(inputDisplay.textContent).toBe("1024");
       cElement.click();
     });
 
@@ -234,7 +237,7 @@ describe("Calculator operations", () => {
       fiveElement.click();
       rootElement.click();
 
-      expect(inputDisplay.textContent).toBe(5);
+      expect(inputDisplay.textContent).toBe("5");
       cElement.click();
     });
 
@@ -245,7 +248,7 @@ describe("Calculator operations", () => {
       twoElement.click();
       ceilElement.click();
 
-      expect(inputDisplay.textContent).toBe(2);
+      expect(inputDisplay.textContent).toBe("2");
       cElement.click();
     });
 
@@ -255,7 +258,7 @@ describe("Calculator operations", () => {
       twoElement.click();
       floorElement.click();
 
-      expect(inputDisplay.textContent).toBe(1);
+      expect(inputDisplay.textContent).toBe("1");
       cElement.click();
     });
   });
