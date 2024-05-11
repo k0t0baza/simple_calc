@@ -51,13 +51,30 @@ describe("Calculator operations", () => {
   const inputDisplay = document.getElementById("number-input");
   
 
-
+  //Тест ввода
   test("enter 1", () => {
       oneElement.click();
       expect(inputDisplay.textContent).toBe("1");
       cElement.click();
   });
 
+  test("enter 123 should display 123", () => {
+    oneElement.click();
+    twoElement.click();
+    threeElement.click();
+    expect(inputDisplay.textContent).toBe("123");
+    cElement.click();
+  });
+
+  test("12345 double erase should result 123", () => {
+    inputDisplay.textContent = "12345";
+    backspaceElement.click();
+    backspaceElement.click();
+    expect(inputDisplay.textContent).toBe("123");
+    cElement.click();
+  });
+
+  //Тест операции сложения
   test("adds 1 + 2 to equal 3", () => {
       
       oneElement.click();
@@ -68,7 +85,32 @@ describe("Calculator operations", () => {
       expect(inputDisplay.textContent).toBe("3");
       cElement.click();
     });
-  
+
+  test("adds -6 + 10 to equal 4", () => {
+    sixElement.click();
+    signElement.click();
+    signElement.click();
+    plusElement.click();
+    equalsElement.click();
+
+    expect(inputDisplay.textContent).toBe("4");
+    cElement.click();
+  });
+
+  test("adds -6 + 10 + 5 to equal 9", () => {
+    sixElement.click();
+    signElement.click();
+    signElement.click();
+    plusElement.click();
+    equalsElement.click();
+    plusElement.click();
+    nineElement.click();
+    
+    expect(inputDisplay.textContent).toBe("9");
+    cElement.click();
+  });
+
+  //Тест операции вычитания
     test("subtracts 2 - 1 to equal 1", () => {
       twoElement.click();
       minusElement.click();
@@ -77,7 +119,20 @@ describe("Calculator operations", () => {
       expect(inputDisplay.textContent).toBe("1");
       cElement.click();
     });
+
+    test("subtracts -6 - (-6) to equal 0", () => {
+      sixElement.click();
+      signElement.click();
+      plusElement.click();
+      sixElement.click();
+      signElement.click();
+      equalsElement.click();
+
+      expect(inputDisplay.textContent).toBe("0");
+      cElement.click();
+    });
   
+    //Тест операции умножения
     test("multiplies 1 x 2 to equal 2", () => {
       oneElement.click();
       multElement.click();
@@ -86,7 +141,19 @@ describe("Calculator operations", () => {
       expect(inputDisplay.textContent).toBe("2");
       cElement.click();
     });
+
+    test("multiple -5 x 5 to equal -25", () => {
+      fiveElement.click();
+      signElement.click();
+      multElement.click();
+      fiveElement.click();
+      equalsElement.click();
+
+      expect(inputDisplay.textContent).toBe("-25");
+      cElement.click();
+    });
   
+    //Тест операции деления
     test("divides 2 / 1 to equal 2", () => {
       twoElement.click();
       subdElement.click();
@@ -95,7 +162,19 @@ describe("Calculator operations", () => {
       expect(inputDisplay.textContent).toBe("2");
       cElement.click();
     });
+
+    test("divides -25 / 5 to equal -5", () => {
+      twoElement.click();
+      fiveElement.click();
+      subdElement.click();
+      fiveElement.click();
+      equalsElement.click();
+
+      expect(inputDisplay.textContent).toBe("-5");
+      cElement.click();
+    });
   
+    //Тест операции sin
     test("calculate sin(3.14) to equal 0.00", () => {
       threeElement.click();
       dotElement.click();
@@ -106,10 +185,79 @@ describe("Calculator operations", () => {
       cElement.click();
     });
   
+    //Тест операции cos
     test("calculate cos(0) to equal 1.00", () => {
       zeroElement.click();
       cosElement.click();
       expect(Number(inputDisplay.textContent)).toBeCloseTo(1.00, 2);
+      cElement.click();
+    });
+
+    //Тест операции mod
+    test("56 mod 5 equal to 2.8", () => {
+      fiveElement.click();
+      sixElement.click();
+      percentElement.click();
+      fiveElement.click();
+      equalsElement.click();
+
+      expect(Number(inputDisplay.textContent)).toBeCloseTo(2.8, 2);
+      cElement.click();
+    });
+
+    test("56 mod 555 equal to 56", () => {
+      fiveElement.click();
+      sixElement.click();
+      percentElement.click();
+      fiveElement.click();
+      fiveElement.click();
+      fiveElement.click();
+      equalsElement.click();
+
+      expect(inputDisplay.textContent).toBe(56);
+      cElement.click();
+    });
+
+    //Тест операции возведения в степень
+    test("2 in power of 10 equal to 1024", () => {
+      twoElement.click();
+      powElement.click();
+      oneElement.click();
+      zeroElement.click();
+      equalsElement.click();
+
+      expect(inputDisplay.textContent).toBe(1024);
+      cElement.click();
+    });
+
+    //Тест операции извлечения квадратного корня
+    test("square root of 25 equal to 5", () => {
+      twoElement.click();
+      fiveElement.click();
+      rootElement.click();
+
+      expect(inputDisplay.textContent).toBe(5);
+      cElement.click();
+    });
+
+    //Тест операций округления
+    test("1.2 ceil equal to 2", () => {
+      oneElement.click();
+      dotElement.click();
+      twoElement.click();
+      ceilElement.click();
+
+      expect(inputDisplay.textContent).toBe(2);
+      cElement.click();
+    });
+
+    test("1.2 floor equal to 1", () => {
+      oneElement.click();
+      dotElement.click();
+      twoElement.click();
+      floorElement.click();
+
+      expect(inputDisplay.textContent).toBe(1);
       cElement.click();
     });
   });
