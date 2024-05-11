@@ -89,7 +89,6 @@ describe("Calculator operations", () => {
   test("adds -6 + 10 to equal 4", () => {
     sixElement.click();
     signElement.click();
-    signElement.click();
     plusElement.click();
     equalsElement.click();
 
@@ -99,7 +98,6 @@ describe("Calculator operations", () => {
 
   test("adds -6 + 10 + 5 to equal 9", () => {
     sixElement.click();
-    signElement.click();
     signElement.click();
     plusElement.click();
     equalsElement.click();
@@ -123,7 +121,7 @@ describe("Calculator operations", () => {
     test("subtracts -6 - (-6) to equal 0", () => {
       sixElement.click();
       signElement.click();
-      plusElement.click();
+      minusElement.click();
       sixElement.click();
       signElement.click();
       equalsElement.click();
